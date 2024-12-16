@@ -144,7 +144,7 @@ def nfa_to_dfa():
             dfa_diagram_label.config(image=img)
             dfa_diagram_label.image = img
 
-        dfa_result_label.config(text=f"Converted DFA: {len(dfa_states)} states (including trap state)", fg="blue",bg='white')
+        dfa_result_label.config(text=f"Converted DFA: {len(dfa_states)} states (including trap state)", fg="blue",bg='black')
 
     except Exception as e:
         messagebox.showerror("Error", f"NFA to DFA conversion failed: {e}")
@@ -160,93 +160,93 @@ root.grid_columnconfigure(0, weight=1)
 root.grid_columnconfigure(1, weight=1)
 
 # Left Frame: DFSM Simulation
-input_frame = tk.Frame(root, padx=10, pady=10, bg="#1E1E1E", relief="groove", bd=2)  # Updated background color
+input_frame = tk.Frame(root, padx=10, pady=10, bg="#1e1e2f", relief="groove", bd=2)
 input_frame.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 
 # Right Frame: NFA to DFA Conversion
-nfa_frame = tk.Frame(root, padx=10, pady=10, bg="#2D2D2D", relief="groove", bd=2)  # Updated background color
+nfa_frame = tk.Frame(root, padx=10, pady=10, bg="#282c34", relief="groove", bd=2)
 nfa_frame.grid(row=0, column=1, sticky="nsew", padx=10, pady=10)
 
 # DFSM Simulation Section (Left Frame)
-input_title = tk.Label(input_frame, text="DFSM Simulation", font=("Arial", 14, "bold"), bg="#1E1E1E", fg='white')
+input_title = tk.Label(input_frame, text="DFSM Simulation", font=("Arial", 14, "bold"), bg="#1e1e2f", fg='white')
 input_title.grid(row=0, column=0, columnspan=2, pady=10)
 
-state_label = tk.Label(input_frame, text="Enter States (comma-separated):", bg="#1E1E1E", fg='white')
+state_label = tk.Label(input_frame, text="Enter States (comma-separated):", bg="#1e1e2f", fg='white')
 state_label.grid(row=1, column=0, sticky="w", pady=5)
 state_entry = tk.Entry(input_frame, width=30)
 state_entry.grid(row=1, column=1, pady=5)
 
-alphabet_label = tk.Label(input_frame, text="Enter Alphabet (comma-separated):", bg="#1E1E1E" ,fg='white')
+alphabet_label = tk.Label(input_frame, text="Enter Alphabet (comma-separated):", bg="#1e1e2f" ,fg='white')
 alphabet_label.grid(row=2, column=0, sticky="w", pady=5)
 alphabet_entry = tk.Entry(input_frame, width=30)
 alphabet_entry.grid(row=2, column=1, pady=5)
 
-start_state_label = tk.Label(input_frame, text="Enter Start State:", bg="#1E1E1E", fg='white')
+start_state_label = tk.Label(input_frame, text="Enter Start State:", bg="#1e1e2f", fg='white')
 start_state_label.grid(row=3, column=0, sticky="w", pady=5)
 start_state_entry = tk.Entry(input_frame, width=30)
 start_state_entry.grid(row=3, column=1, pady=5)
 
-accept_state_label = tk.Label(input_frame, text="Enter Accepting States (comma-separated):", bg="#1E1E1E", fg='white')
+accept_state_label = tk.Label(input_frame, text="Enter Accepting States (comma-separated):", bg="#1e1e2f", fg='white')
 accept_state_label.grid(row=4, column=0, sticky="w", pady=5)
 accept_state_entry = tk.Entry(input_frame, width=30)
 accept_state_entry.grid(row=4, column=1, pady=5)
 
-transition_label = tk.Label(input_frame, text="Enter Transitions (state,symbol,next_state;...):", bg="#1E1E1E", fg='white')
+transition_label = tk.Label(input_frame, text="Enter Transitions (state,symbol,next_state;...):", bg="#1e1e2f", fg='white')
 transition_label.grid(row=5, column=0, sticky="w", pady=5)
 transition_entry = tk.Entry(input_frame, width=30)
 transition_entry.grid(row=5, column=1, pady=5)
 
-input_string_label = tk.Label(input_frame, text="Enter String to Verify:",bg='#1E1E1E', fg='white')
+input_string_label = tk.Label(input_frame, text="Enter String to Verify:",bg='#1e1e2f', fg='white')
 input_string_label.grid(row=6, column=0, sticky="w", pady=5)
 input_string_entry = tk.Entry(input_frame, width=30)
 input_string_entry.grid(row=6, column=1, pady=5)
 
-simulate_button = tk.Button(input_frame, text="Simulate DFSM", command=simulate_dfsm, bg="white", fg="black")
+simulate_button = tk.Button(input_frame, text="Simulate DFSM", command=simulate_dfsm, bg="#5c5cff", fg="white")
 simulate_button.grid(row=7, column=0, columnspan=2, pady=10)
 
-fsm_diagram_label = tk.Label(input_frame, bg="#1E1E1E")
+fsm_diagram_label = tk.Label(input_frame, bg="#1e1e2f")
 fsm_diagram_label.grid(row=8, column=0, columnspan=2, pady=10)
 
-dfsm_result_label = tk.Label(input_frame, text="DFSM Result:", font=("Arial", 12), bg="white")
+dfsm_result_label = tk.Label(input_frame, text="DFSM Result:", font=("Arial", 12), bg="#1e1e2f", fg='white')
 dfsm_result_label.grid(row=9, column=0, columnspan=2, pady=10)
 
 # NFA to DFA Conversion Section (Right Frame)
-nfa_title = tk.Label(nfa_frame, text="NFA to DFA Conversion", font=("Arial", 14, "bold"), bg="#2D2D2D",fg='white')
+nfa_title = tk.Label(nfa_frame, text="NFA to DFA Conversion", font=("Arial", 14, "bold"), bg="#282c34", fg='white')
 nfa_title.grid(row=0, column=0, columnspan=2, pady=10)
 
-nfa_state_label = tk.Label(nfa_frame, text="NFA States (comma-separated):", bg="#2D2D2D",fg='white')
+nfa_state_label = tk.Label(nfa_frame, text="Enter NFA States (comma-separated):", bg="#282c34", fg='white')
 nfa_state_label.grid(row=1, column=0, sticky="w", pady=5)
 nfa_state_entry = tk.Entry(nfa_frame, width=30)
 nfa_state_entry.grid(row=1, column=1, pady=5)
 
-nfa_alphabet_label = tk.Label(nfa_frame, text="NFA Alphabet (comma-separated):", bg="#2D2D2D",fg='white')
+nfa_alphabet_label = tk.Label(nfa_frame, text="Enter NFA Alphabet (comma-separated):", bg="#282c34", fg='white')
 nfa_alphabet_label.grid(row=2, column=0, sticky="w", pady=5)
 nfa_alphabet_entry = tk.Entry(nfa_frame, width=30)
 nfa_alphabet_entry.grid(row=2, column=1, pady=5)
 
-nfa_start_state_label = tk.Label(nfa_frame, text="NFA Start State:", bg="#2D2D2D",fg='white')
+nfa_start_state_label = tk.Label(nfa_frame, text="Enter NFA Start State:", bg="#282c34", fg='white')
 nfa_start_state_label.grid(row=3, column=0, sticky="w", pady=5)
 nfa_start_state_entry = tk.Entry(nfa_frame, width=30)
 nfa_start_state_entry.grid(row=3, column=1, pady=5)
 
-nfa_accept_state_label = tk.Label(nfa_frame, text="NFA Accepting States (comma-separated):", bg="#2D2D2D",fg='white')
+nfa_accept_state_label = tk.Label(nfa_frame, text="Enter NFA Accepting States (comma-separated):", bg="#282c34", fg='white')
 nfa_accept_state_label.grid(row=4, column=0, sticky="w", pady=5)
 nfa_accept_state_entry = tk.Entry(nfa_frame, width=30)
 nfa_accept_state_entry.grid(row=4, column=1, pady=5)
 
-nfa_transition_label = tk.Label(nfa_frame, text="NFA Transitions (state,symbol,next_state;...):", bg="#2D2D2D",fg='white')
+nfa_transition_label = tk.Label(nfa_frame, text="Enter NFA Transitions (state,symbol,next_state;...):", bg="#282c34", fg='white')
 nfa_transition_label.grid(row=5, column=0, sticky="w", pady=5)
 nfa_transition_entry = tk.Entry(nfa_frame, width=30)
 nfa_transition_entry.grid(row=5, column=1, pady=5)
 
-convert_button = tk.Button(nfa_frame, text="Convert NFA to DFA", command=nfa_to_dfa, bg="white", fg="black")
-convert_button.grid(row=6, column=0, columnspan=2, pady=10)
+nfa_convert_button = tk.Button(nfa_frame, text="Convert NFA to DFA", command=nfa_to_dfa, bg="#5c5cff", fg="white")
+nfa_convert_button.grid(row=6, column=0, columnspan=2, pady=10)
 
-dfa_diagram_label = tk.Label(nfa_frame, bg="#2D2D2D")
+dfa_diagram_label = tk.Label(nfa_frame, bg="#282c34")
 dfa_diagram_label.grid(row=7, column=0, columnspan=2, pady=10)
 
-dfa_result_label = tk.Label(nfa_frame, text="DFA Conversion Result:", font=("Arial", 12), bg="#2D2D2D",fg='white')
+dfa_result_label = tk.Label(nfa_frame, text="DFA Result:", font=("Arial", 12), bg="#282c34", fg='white')
 dfa_result_label.grid(row=8, column=0, columnspan=2, pady=10)
 
-# Run the main loop
+# Run the application
 root.mainloop()
